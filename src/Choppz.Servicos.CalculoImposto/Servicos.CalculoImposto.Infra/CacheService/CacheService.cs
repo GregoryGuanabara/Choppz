@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
 using Servicos.CalculoImposto.Core.Abstractions.CacheService;
 
-namespace Servicos.CalculoImposto.Infra.CacheService
+namespace Servicos.CalculoImposto.Infra.Service.Cache
 {
     public sealed class CacheService : ICacheService
     {

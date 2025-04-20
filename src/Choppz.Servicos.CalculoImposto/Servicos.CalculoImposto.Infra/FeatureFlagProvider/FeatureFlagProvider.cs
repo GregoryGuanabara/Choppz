@@ -2,7 +2,7 @@
 using Servicos.CalculoImposto.Core.Abstractions.FeatureFlag;
 using Servicos.CalculoImposto.Core.Enums;
 
-namespace Servicos.CalculoImposto.Infra.FeatureFlagProvider
+namespace Servicos.CalculoImposto.Infra.FeatureFlagProviderService
 {
     public sealed class FeatureFlagProvider : IFeatureFlagProvider
     {
