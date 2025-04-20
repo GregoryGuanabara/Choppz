@@ -11,3 +11,5 @@
 # Ignorar arquivos de build
 /bin/
 /obj/
+*.dll
+*.pdb

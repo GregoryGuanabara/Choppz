@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Servicos.CalculoImposto.Infra")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b62bdc66212d795fc111a8cb3f80408c9b625b8f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b22af5263ca51a2b4dfd0f76d34b8dcf14e98915")]
 [assembly: System.Reflection.AssemblyProductAttribute("Servicos.CalculoImposto.Infra")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Servicos.CalculoImposto.Infra")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

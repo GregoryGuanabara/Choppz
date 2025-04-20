@@ -1,10 +1,12 @@
 # Ignorar a pasta do Visual Studio
 .vs/
 
-# Ignorar arquivos temporários do sistema
+# Ignorar arquivos temporï¿½rios do sistema
 *.log
 *.tmp
 
 # Ignorar arquivos de build
 /bin/
 /obj/
+*.dll
+*.pdb
