@@ -12,12 +12,12 @@ namespace Servicos.CalculoImposto.Core.Entities.PedidoTributado
             _itens = new List<PedidoItem>();
         }
 
-        public PedidoTributado(int pedidoId, int clienteId, decimal imposto, EPedidoTributadoStatus status, List<PedidoItem> itens)
+        public PedidoTributado(int pedidoId, int clienteId, decimal imposto, List<PedidoItem> itens)
         {
             PedidoId = pedidoId;
             ClienteId = clienteId;
             Imposto = imposto;
-            Status = status;
+            Status = EPedidoTributadoStatus.Criado;
             _itens = itens;
         }
 

@@ -26,12 +26,34 @@ namespace Servicos.CalculoImposto.Application.Models
             return response;
         }
 
+
+        public static List<PedidoItemDTO> ConverterParaDTO(List<PedidoItemModel> pedidoItens)
+        {
+            var response = new List<PedidoItemDTO>();
+
+            foreach (var item in pedidoItens)
+                response.Add(new PedidoItemDTO(item.ProdutoId, item.Quantidade, item.Valor));
+
+            return response;
+        }
+
+
         public static List<PedidoItemModel> ConverterParaModels(IReadOnlyCollection<PedidoItem> pedidoItens)
         {
             var response = new List<PedidoItemModel>();
 
             foreach (var item in pedidoItens)
                 response.Add(new PedidoItemModel(item.ProdutoId, item.Quantidade, item.Valor));
+
+            return response;
+        }
+
+        public static List<PedidoItem> ConverterParaEntidade(List<PedidoItemModel> pedidoItensViewModel)
+        {
+            var response = new List<PedidoItem>();
+
+            foreach (var item in pedidoItensViewModel)
+                response.Add(new PedidoItem(item.ProdutoId, item.Quantidade, item.Valor));
 
             return response;
         }
