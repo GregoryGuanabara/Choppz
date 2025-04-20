@@ -1,35 +1,50 @@
-﻿using Servicos.CalculoImposto.Core.Abstractions.Repositories;
+﻿using Microsoft.EntityFrameworkCore;
+using Servicos.CalculoImposto.Core.Abstractions.Repositories;
 using Servicos.CalculoImposto.Core.DTOs;
 using Servicos.CalculoImposto.Core.Entities.PedidoTributado;
 using Servicos.CalculoImposto.Core.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Servicos.CalculoImposto.Infra.Persistence.Repositories
 {
     public class PedidoTributadoRepository : IPedidoTributadoRepository
     {
+        private readonly DbSet<PedidoTributado> _pedidosTributados;
+
+        public PedidoTributadoRepository(ApplicationDbContext context)
+        {
+            _pedidosTributados = context.Set<PedidoTributado>();
+        }
+
         public Task<bool> ExistePedidoAsync(int pedidoId)
         {
             throw new NotImplementedException();
         }
 
-        public Task InserirAsync(PedidoTributado pedido)
+        public async Task InserirAsync(PedidoTributado pedido)
         {
-            throw new NotImplementedException();
+            await _pedidosTributados.AddAsync(pedido);
         }
 
-        public Task<PedidoTributado?> PegarPeloPedidoIdAsNoTrackingAsync(int id)
+        public async Task<PedidoTributado?> PegarPeloPedidoIdAsNoTrackingAsync(int pedidoId)
         {
-            throw new NotImplementedException();
+            return await _pedidosTributados.AsNoTracking().SingleOrDefaultAsync(p => p.PedidoId == pedidoId);
         }
 
-        public Task<ResultadoPaginadoDTO<PedidoTributado>> PegarTodosAsNoTracking(EPedidoTributadoStatus? status, int pagina, int itensPorPagina)
+        public async Task<ResultadoPaginadoDTO<PedidoTributado>> PegarTodosAsNoTracking(EPedidoTributadoStatus? status, int pagina, int itensPorPagina)
         {
-            throw new NotImplementedException();
+            var query = _pedidosTributados.AsNoTracking();
+
+            if (status.HasValue)
+                query = query.Where(p => p.Status == status.Value);
+
+            int totalItens = await query.CountAsync();
+
+            var itens = await query.OrderBy(p => p.PedidoId)
+                                   .Skip((pagina - 1) * itensPorPagina)
+                                   .Take(itensPorPagina)
+                                   .ToListAsync();
+
+            return new ResultadoPaginadoDTO<PedidoTributado>(itens, totalItens, (int)Math.Ceiling(totalItens / (double)itensPorPagina), pagina);
         }
     }
 }

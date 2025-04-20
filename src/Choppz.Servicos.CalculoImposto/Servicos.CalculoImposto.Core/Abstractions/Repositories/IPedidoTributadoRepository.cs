@@ -6,7 +6,7 @@ namespace Servicos.CalculoImposto.Core.Abstractions.Repositories
 {
     public interface IPedidoTributadoRepository
     {
-        Task<PedidoTributado?> PegarPeloPedidoIdAsNoTrackingAsync(int id);
+        Task<PedidoTributado?> PegarPeloPedidoIdAsNoTrackingAsync(int pedidoId);
 
         Task InserirAsync(PedidoTributado pedido);
 
