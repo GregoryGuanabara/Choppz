@@ -9,7 +9,7 @@
   <ItemGroup>
     <Folder Include="Abstractions\" />
     <Folder Include="Notifications\" />
-    <Folder Include="Queries\" />
+    <Folder Include="Queries\PegarTodos\" />
   </ItemGroup>
 
   <ItemGroup>
