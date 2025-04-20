@@ -1,6 +1,6 @@
 ﻿namespace Servicos.CalculoImposto.Application.Models
 {
-    internal sealed record RespostaPadronizadaModel
+    public sealed record RespostaPadronizadaModel
     {
         public object? Data { get; }
         public bool Sucesso { get; }

@@ -1,6 +1,6 @@
 ﻿namespace Servicos.CalculoImposto.Application.Models
 {
-    internal sealed record ErroModel
+    public sealed record ErroModel
     {
         public ErroModel(string propriedade, string mensagem)
         {
