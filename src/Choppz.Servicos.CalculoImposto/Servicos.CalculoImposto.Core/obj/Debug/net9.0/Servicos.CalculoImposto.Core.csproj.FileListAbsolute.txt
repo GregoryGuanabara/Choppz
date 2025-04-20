@@ -1,0 +1,12 @@
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Core\obj\Debug\net9.0\Servicos.CalculoImposto.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Core\obj\Debug\net9.0\Servicos.CalculoImposto.Core.AssemblyInfoInputs.cache
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Core\obj\Debug\net9.0\Servicos.CalculoImposto.Core.AssemblyInfo.cs
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Core\obj\Debug\net9.0\Servicos.CalculoImposto.Core.csproj.CoreCompileInputs.cache
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Core\obj\Debug\net9.0\Servicos.CalculoImposto.Core.sourcelink.json
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Core\bin\Debug\net9.0\Servicos.CalculoImposto.Core.deps.json
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Core\bin\Debug\net9.0\Servicos.CalculoImposto.Core.dll
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Core\bin\Debug\net9.0\Servicos.CalculoImposto.Core.pdb
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Core\obj\Debug\net9.0\Servicos.CalculoImposto.Core.dll
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Core\obj\Debug\net9.0\refint\Servicos.CalculoImposto.Core.dll
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Core\obj\Debug\net9.0\Servicos.CalculoImposto.Core.pdb
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Core\obj\Debug\net9.0\ref\Servicos.CalculoImposto.Core.dll

@@ -1,0 +1,12 @@
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Infra\bin\Debug\net9.0\Servicos.CalculoImposto.Infra.deps.json
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Infra\bin\Debug\net9.0\Servicos.CalculoImposto.Infra.dll
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Infra\bin\Debug\net9.0\Servicos.CalculoImposto.Infra.pdb
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Infra\obj\Debug\net9.0\Servicos.CalculoImposto.Infra.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Infra\obj\Debug\net9.0\Servicos.CalculoImposto.Infra.AssemblyInfoInputs.cache
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Infra\obj\Debug\net9.0\Servicos.CalculoImposto.Infra.AssemblyInfo.cs
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Infra\obj\Debug\net9.0\Servicos.CalculoImposto.Infra.csproj.CoreCompileInputs.cache
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Infra\obj\Debug\net9.0\Servicos.CalculoImposto.Infra.sourcelink.json
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Infra\obj\Debug\net9.0\Servicos.CalculoImposto.Infra.dll
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Infra\obj\Debug\net9.0\refint\Servicos.CalculoImposto.Infra.dll
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Infra\obj\Debug\net9.0\Servicos.CalculoImposto.Infra.pdb
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Infra\obj\Debug\net9.0\ref\Servicos.CalculoImposto.Infra.dll
