@@ -1,4 +1,4 @@
-# Ignorar a pasta do Visual Studio
+﻿# Ignorar a pasta do Visual Studio
 .vs/
 
 # Ignorar arquivos tempor�rios do sistema
