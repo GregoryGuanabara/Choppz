@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "Ygc0FLpir6w=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Grego\\source\\repos\\GregoryGuanabara\\Choppz\\src\\Choppz.Servicos.CalculoImposto\\Servicos.CalculoImposto.Api\\Servicos.CalculoImposto.Api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Grego\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.3\\microsoft.aspnetcore.openapi.9.0.3.nupkg.sha512",
+    "C:\\Users\\Grego\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512",
+    "C:\\Users\\Grego\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.22.1-preview.1\\microsoft.visualstudio.azure.containers.tools.targets.1.22.1-preview.1.nupkg.sha512"
+  ],
+  "logs": []
+}
