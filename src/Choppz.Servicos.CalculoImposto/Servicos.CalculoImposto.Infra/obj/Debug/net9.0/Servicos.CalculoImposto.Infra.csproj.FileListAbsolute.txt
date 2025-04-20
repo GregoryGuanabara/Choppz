@@ -10,3 +10,7 @@ C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoI
 C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Infra\obj\Debug\net9.0\refint\Servicos.CalculoImposto.Infra.dll
 C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Infra\obj\Debug\net9.0\Servicos.CalculoImposto.Infra.pdb
 C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Infra\obj\Debug\net9.0\ref\Servicos.CalculoImposto.Infra.dll
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Infra\bin\Debug\net9.0\Servicos.CalculoImposto.Core.dll
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Infra\bin\Debug\net9.0\Servicos.CalculoImposto.Core.pdb
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Infra\obj\Debug\net9.0\Servicos.CalculoImposto.Infra.csproj.AssemblyReference.cache
+C:\Users\Grego\source\repos\GregoryGuanabara\Choppz\src\Choppz.Servicos.CalculoImposto\Servicos.CalculoImposto.Infra\obj\Debug\net9.0\Servicos.68CC9333.Up2Date
