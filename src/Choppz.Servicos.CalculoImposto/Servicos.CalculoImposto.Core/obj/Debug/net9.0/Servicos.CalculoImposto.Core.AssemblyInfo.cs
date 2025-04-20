@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Servicos.CalculoImposto.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0c8d0d0b15515e6a24653512e01df223616b39c1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+73ffd89ca41ad84ac46a897ef8ee734c663f00a8")]
 [assembly: System.Reflection.AssemblyProductAttribute("Servicos.CalculoImposto.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Servicos.CalculoImposto.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
