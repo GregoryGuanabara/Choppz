@@ -36,6 +36,7 @@ namespace Servicos.CalculoImposto.Application.Commands.CalcularImposto
                 return RespostaPadronizadaModel.ComErros("O Pedido ja existe.");
 
             //Todo: Implementar o calculo do imposto aqui
+
             //Todo: Salvar a entidade no banco de dados aqui
             //Todo: Implementar o evento de pedido tributado aqui
 
