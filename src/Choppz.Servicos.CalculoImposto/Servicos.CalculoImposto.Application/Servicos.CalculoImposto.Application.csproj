@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstractions\" />
     <Folder Include="Notifications\" />
   </ItemGroup>
 
@@ -18,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Servicos.CalculoImposto.Core\Servicos.CalculoImposto.Core.csproj" />
+    <ProjectReference Include="..\Servicos.CalculoImposto.Infra\Servicos.CalculoImposto.Infra.csproj" />
   </ItemGroup>
 
 </Project>
