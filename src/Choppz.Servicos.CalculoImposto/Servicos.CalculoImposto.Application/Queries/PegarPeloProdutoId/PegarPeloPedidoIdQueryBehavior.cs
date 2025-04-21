@@ -1,15 +1,14 @@
 ﻿using MediatR;
 using Servicos.CalculoImposto.Application.Models;
-using Servicos.CalculoImposto.Application.Queries.PegarPeloProdutoId;
 using Servicos.CalculoImposto.Core.Abstractions.CacheService;
 
-namespace Servicos.CalculoImposto.Application.Abstractions.Behaviors
+namespace Servicos.CalculoImposto.Application.Queries.PegarPeloProdutoId
 {
-    public class CachingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
+    public class PegarPeloPedidoIdQueryBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
     {
         private readonly ICacheService _cacheService;
 
-        public CachingBehavior(ICacheService cacheService)
+        public PegarPeloPedidoIdQueryBehavior(ICacheService cacheService)
         {
             _cacheService = cacheService;
         }
