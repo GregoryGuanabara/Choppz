@@ -19,8 +19,6 @@ Além disso, a utilização de ferramentas como **.NET 9, MediatR, FluentValidat
 O principal objetivo é **aprender na prática**, testando integrações, otimizando processos e explorando técnicas que podem ser aplicadas em projetos reais. Esse espaço serve não apenas para estudo individual, mas também para colaboração e troca de experiências entre desenvolvedores.  
 
 Se você deseja contribuir, revisar conceitos ou apenas acompanhar o desenvolvimento, este projeto é um excelente ponto de partida para aprofundar seus conhecimentos! 🚀  
-Se quiser que eu refine esse texto ou acrescente mais detalhes, me avise! 😉  
-
 
 ## 🔧 Tecnologias e Padrões Utilizados
 
