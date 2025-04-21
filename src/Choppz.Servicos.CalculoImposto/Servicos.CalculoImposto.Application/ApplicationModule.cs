@@ -30,7 +30,7 @@ namespace Servicos.CalculoImposto.Application
 
             services.AddValidatorsFromAssemblyContaining<CalcularImpostoCommandValidator>();
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
-            services.AddTransient<IPipelineBehavior<PegarPeloPedidoIdQuery, RespostaPadronizadaModel>, CachingBehavior<PegarPeloPedidoIdQuery, RespostaPadronizadaModel>>();
+            services.AddTransient<IPipelineBehavior<PegarPeloPedidoIdQuery, RespostaPadronizadaModel>, PegarPeloPedidoIdQueryBehavior<PegarPeloPedidoIdQuery, RespostaPadronizadaModel>>();
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));
 
             return services;

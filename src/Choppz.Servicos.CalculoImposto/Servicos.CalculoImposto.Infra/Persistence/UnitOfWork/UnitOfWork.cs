@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Servicos.CalculoImposto.Core.Abstractions.UnitOfWork;
-using Servicos.CalculoImposto.Core.Entities.PedidoTributado;
+using Servicos.CalculoImposto.Core.BaseEntities;
 using Servicos.CalculoImposto.Infra.Abstractions.EventDispatcher;
 
 namespace Servicos.CalculoImposto.Infra.Persistence.UnitOfWork
@@ -19,7 +19,7 @@ namespace Servicos.CalculoImposto.Infra.Persistence.UnitOfWork
 
         public async Task SaveChangesAsync()
         {
-            var entidadesAdicionadas = _context.ChangeTracker.Entries<PedidoTributado>()
+            var entidadesAdicionadas = _context.ChangeTracker.Entries<AggregateRoot>()
                 .Where(e => e.State == EntityState.Added)
                 .Select(e => e.Entity)
                 .ToList();
