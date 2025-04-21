@@ -3,7 +3,7 @@ using Servicos.CalculoImposto.Application.Models;
 using Servicos.CalculoImposto.Core.Abstractions.CacheService;
 using Servicos.CalculoImposto.Core.Events;
 
-namespace Servicos.CalculoImposto.Application.Notifications
+namespace Servicos.CalculoImposto.Application.Notifications.PedidoTributadoSalvoEvents
 {
     public sealed class CachearPedidoResponseHandler : INotificationHandler<PedidoTributadoSalvoEvent>
     {

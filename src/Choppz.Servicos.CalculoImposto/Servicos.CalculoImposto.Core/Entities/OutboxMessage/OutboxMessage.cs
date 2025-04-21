@@ -1,4 +1,5 @@
 ﻿using Servicos.CalculoImposto.Core.BaseEntities;
+using Servicos.CalculoImposto.Core.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
