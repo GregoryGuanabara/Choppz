@@ -1,4 +1,6 @@
 using Scalar.AspNetCore;
+using Serilog;
+using Servicos.CalculoImposto.Api.Middlewares;
 using Servicos.CalculoImposto.Application;
 using Servicos.CalculoImposto.Core;
 using Servicos.CalculoImposto.Infra;
@@ -18,7 +20,13 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddOptions<ScalarOptions>().BindConfiguration("ScalarOptions");
 
+builder.Host.UseSerilog((ctx, lc) => lc
+    .WriteTo.Console()
+    .Enrich.FromLogContext());
+
 var app = builder.Build();
+
+app.UseMiddleware<RequestResponseLoggingMiddleware>();
 
 if (app.Environment.IsDevelopment())
 {
