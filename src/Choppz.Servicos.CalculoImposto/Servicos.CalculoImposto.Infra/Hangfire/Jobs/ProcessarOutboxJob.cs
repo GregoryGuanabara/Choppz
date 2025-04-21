@@ -1,19 +1,23 @@
 ﻿using Servicos.CalculoImposto.Core.Abstractions.Repositories;
 using Servicos.CalculoImposto.Core.Abstractions.UnitOfWork;
 using Servicos.CalculoImposto.Core.Enums;
+using Servicos.CalculoImposto.Infra.MessageBus;
 
 namespace Servicos.CalculoImposto.Infra.Hangfire.Jobs
 {
     internal sealed class ProcessarOutboxJob
     {
+        private readonly IMessageBusService _messageBusService;
         private readonly IOutboxMessageRepository _outboxRepository;
         private readonly IUnitOfWork _unitOfWork;
 
         public ProcessarOutboxJob(IOutboxMessageRepository outboxRepository,
-                                  IUnitOfWork unitOfWork)
+                                  IUnitOfWork unitOfWork,
+                                  IMessageBusService messageBusService)
         {
             _outboxRepository = outboxRepository;
             _unitOfWork = unitOfWork;
+            _messageBusService = messageBusService;
         }
 
         public async Task Executar()
@@ -24,7 +28,7 @@ namespace Servicos.CalculoImposto.Infra.Hangfire.Jobs
             {
                 try
                 {
-                    //await _messageBusService.PublishAsync(mensagem);
+                   await _messageBusService.PublishAsync(mensagem);
                     mensagem.SetarComoProcessado();
                 }
                 catch (Exception ex)
