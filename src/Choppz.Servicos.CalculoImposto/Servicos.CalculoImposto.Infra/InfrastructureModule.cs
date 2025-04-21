@@ -36,6 +36,7 @@ namespace Servicos.CalculoImposto.Infra
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<IPedidoTributadoRepository, PedidoTributadoRepository>();
+            services.AddScoped<IOutboxMessageRepository, OutboxMessageRepository>();
 
             return services;
         }
