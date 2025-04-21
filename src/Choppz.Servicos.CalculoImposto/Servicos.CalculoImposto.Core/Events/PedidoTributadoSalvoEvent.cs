@@ -4,9 +4,9 @@ using Servicos.CalculoImposto.Core.Enums;
 
 namespace Servicos.CalculoImposto.Core.Events
 {
-    public sealed record PedidoTributadoSalvo : IDomainEvent
+    public sealed record PedidoTributadoSalvoEvent : IDomainEvent
     {
-        public PedidoTributadoSalvo(int pedidoComImpostoId, int pedidoId, int clienteId, decimal imposto, List<PedidoItemDTO> itens, EPedidoTributadoStatus status)
+        public PedidoTributadoSalvoEvent(int pedidoComImpostoId, int pedidoId, int clienteId, decimal imposto, List<PedidoItemDTO> itens, EPedidoTributadoStatus status)
         {
             OcorridoEm = DateTime.Now;
             PedidoComImpostoId = pedidoComImpostoId;
