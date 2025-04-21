@@ -15,9 +15,9 @@ namespace Servicos.CalculoImposto.Infra.Persistence.Repositories
             _pedidosTributados = context.Set<PedidoTributado>();
         }
 
-        public Task<bool> ExistePedidoAsync(int pedidoId)
+        public async Task<bool> ExistePedidoAsync(int pedidoId)
         {
-            throw new NotImplementedException();
+            return await _pedidosTributados.AnyAsync(p => p.PedidoId == pedidoId);
         }
 
         public async Task InserirAsync(PedidoTributado pedido)

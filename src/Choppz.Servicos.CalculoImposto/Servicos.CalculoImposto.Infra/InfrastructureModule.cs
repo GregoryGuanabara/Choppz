@@ -5,6 +5,7 @@ using Servicos.CalculoImposto.Core.Abstractions.FeatureFlag;
 using Servicos.CalculoImposto.Core.Abstractions.Repositories;
 using Servicos.CalculoImposto.Core.Abstractions.UnitOfWork;
 using Servicos.CalculoImposto.Infra.FeatureFlagProviderService;
+using Servicos.CalculoImposto.Infra.MessageBus;
 using Servicos.CalculoImposto.Infra.Persistence;
 using Servicos.CalculoImposto.Infra.Persistence.Repositories;
 using Servicos.CalculoImposto.Infra.Persistence.UnitOfWork;
@@ -20,7 +21,8 @@ namespace Servicos.CalculoImposto.Infra
                 .AddDatabase()
                 .AddRepositories()
                 .AddFeatureFlagProvider()
-                .AddCacheService();
+                .AddCacheService()
+                .AddMessageBusService();
 
             return services;
         }
@@ -36,6 +38,7 @@ namespace Servicos.CalculoImposto.Infra
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             services.AddScoped<IPedidoTributadoRepository, PedidoTributadoRepository>();
+            services.AddScoped<IOutboxMessageRepository, OutboxMessageRepository>();
 
             return services;
         }
@@ -50,6 +53,14 @@ namespace Servicos.CalculoImposto.Infra
         {
             services.AddMemoryCache();
             services.AddSingleton<ICacheService, CacheService>();
+
+            return services;
+        }
+
+        private static IServiceCollection AddMessageBusService(this IServiceCollection services)
+        {
+            services.AddMemoryCache();
+            services.AddSingleton<IMessageBusService, MessageBusService>();
 
             return services;
         }

@@ -41,7 +41,7 @@ namespace Servicos.CalculoImposto.Application.Commands.CalcularImposto
 
             await _pedidoTributadoRepository.InserirAsync(pedidoTributado);
 
-            pedidoTributado.RaiseEvent(new PedidoTributadoSalvo(pedidoTributado.Id, pedidoTributado.PedidoId, pedidoTributado.ClienteId, pedidoTributado.Imposto, PedidoItemModel.ConverterParaDTO(request.Itens), pedidoTributado.Status));
+            pedidoTributado.RaiseEvent(new PedidoTributadoSalvoEvent(pedidoTributado.Id, pedidoTributado.PedidoId, pedidoTributado.ClienteId, pedidoTributado.Imposto, PedidoItemModel.ConverterParaDTO(request.Itens), pedidoTributado.Status));
 
             await _unitOfWork.SaveChangesAsync();
 
