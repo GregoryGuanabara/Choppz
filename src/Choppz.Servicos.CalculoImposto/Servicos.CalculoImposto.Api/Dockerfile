@@ -7,12 +7,14 @@ WORKDIR /app
 EXPOSE 8080
 EXPOSE 8081
 
-
 # This stage is used to build the service project
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["Servicos.CalculoImposto.Api/Servicos.CalculoImposto.Api.csproj", "Servicos.CalculoImposto.Api/"]
+COPY ["Servicos.CalculoImposto.Application/Servicos.CalculoImposto.Application.csproj", "Servicos.CalculoImposto.Application/"]
+COPY ["Servicos.CalculoImposto.Core/Servicos.CalculoImposto.Core.csproj", "Servicos.CalculoImposto.Core/"]
+COPY ["Servicos.CalculoImposto.Infra/Servicos.CalculoImposto.Infra.csproj", "Servicos.CalculoImposto.Infra/"]
 RUN dotnet restore "./Servicos.CalculoImposto.Api/Servicos.CalculoImposto.Api.csproj"
 COPY . .
 WORKDIR "/src/Servicos.CalculoImposto.Api"
