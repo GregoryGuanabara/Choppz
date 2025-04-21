@@ -1,10 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using Serilog;
+using Serilog.Extensions.Logging;
 using Servicos.CalculoImposto.Core.Abstractions.CacheService;
 using Servicos.CalculoImposto.Core.Abstractions.FeatureFlag;
 using Servicos.CalculoImposto.Core.Abstractions.Repositories;
 using Servicos.CalculoImposto.Core.Abstractions.UnitOfWork;
+using Servicos.CalculoImposto.Infra.Abstractions.LogService;
 using Servicos.CalculoImposto.Infra.FeatureFlagProviderService;
+using Servicos.CalculoImposto.Infra.LogService;
 using Servicos.CalculoImposto.Infra.MessageBus;
 using Servicos.CalculoImposto.Infra.Persistence;
 using Servicos.CalculoImposto.Infra.Persistence.Repositories;
@@ -19,6 +24,7 @@ namespace Servicos.CalculoImposto.Infra
         {
             services
                 .AddDatabase()
+                .AddLoggerService()
                 .AddRepositories()
                 .AddFeatureFlagProvider()
                 .AddCacheService()
@@ -61,6 +67,25 @@ namespace Servicos.CalculoImposto.Infra
         {
             services.AddMemoryCache();
             services.AddSingleton<IMessageBusService, MessageBusService>();
+
+            return services;
+        }
+
+        private static IServiceCollection AddLoggerService(this IServiceCollection services)
+        {
+            Log.Logger = new LoggerConfiguration()
+                .WriteTo.Console()
+                .CreateLogger();
+
+            services.AddSingleton(Log.Logger);
+
+            services.AddLogging(loggingBuilder =>
+            {
+                loggingBuilder.ClearProviders();
+                loggingBuilder.AddSerilog(dispose: true);
+            });
+
+            services.AddSingleton<ILoggerService, SerilogService>();
 
             return services;
         }

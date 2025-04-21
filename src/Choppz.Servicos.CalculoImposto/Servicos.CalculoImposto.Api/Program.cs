@@ -13,9 +13,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services
+    .AddInfrastructureModuleServices()
     .AddCoreModuleServices()
-    .AddApplicationModuleServices()
-    .AddInfrastructureModuleServices();
+    .AddApplicationModuleServices();
 
 builder.Services.AddOpenApi();
 
