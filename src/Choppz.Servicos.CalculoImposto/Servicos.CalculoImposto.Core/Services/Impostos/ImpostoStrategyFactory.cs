@@ -4,7 +4,7 @@ using Servicos.CalculoImposto.Core.Enums;
 
 namespace Servicos.CalculoImposto.Core.Services.Impostos
 {
-    public class ImpostoStrategyFactory
+    public class ImpostoStrategyFactory : IImpostoStrategyFactory
     {
         private readonly IFeatureFlagProvider _featureFlagProvider;
 

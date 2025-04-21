@@ -9,15 +9,18 @@ namespace Servicos.CalculoImposto.Core.Services.Impostos
 {
     public sealed class ImpostoService : IImpostoService
     {
-        private readonly ImpostoStrategyFactory _factory;
+        private readonly IImpostoStrategyFactory _factory;
 
-        public ImpostoService(ImpostoStrategyFactory factory)
+        public ImpostoService(IImpostoStrategyFactory factory)
         {
             _factory = factory;
         }
 
         public decimal CalcularImposto(decimal valorTotalItens)
         {
+            if (valorTotalItens < 0)
+                throw new ArgumentException(nameof(valorTotalItens),"O valor total dos itens não pode ser negativo");
+
             var strategy = _factory.ObterStrategy();
             return strategy.Calcular(valorTotalItens);
         }

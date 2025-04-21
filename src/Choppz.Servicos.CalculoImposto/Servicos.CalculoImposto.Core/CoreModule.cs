@@ -20,6 +20,7 @@ namespace Servicos.CalculoImposto.Core
 
             services.AddTransient<ImpostoStrategyFactory>();
 
+            services.AddScoped<IImpostoStrategyFactory, ImpostoStrategyFactory>();
             services.AddScoped<IImpostoStrategy, ImpostoEmVigorStrategy>();
             services.AddScoped<IImpostoStrategy, ImpostoReformaTributariaStrategy>();
 

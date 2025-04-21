@@ -14,6 +14,18 @@ namespace Servicos.CalculoImposto.Core.Entities.PedidoTributado
 
         public PedidoTributado(int pedidoId, int clienteId, decimal imposto, List<PedidoItem> itens)
         {
+            if (pedidoId <= 0)
+                throw new ArgumentException("ID do pedido inválido", nameof(pedidoId));
+
+            if (clienteId <= 0)
+                throw new ArgumentException("ID do cliente inválido", nameof(clienteId));
+
+            if (imposto < 0)
+                throw new ArgumentException("Valor do imposto não pode ser negativo", nameof(imposto));
+
+            if (itens == null || !itens.Any())
+                throw new ArgumentException("Pedido deve conter pelo menos um item", nameof(itens));
+
             PedidoId = pedidoId;
             ClienteId = clienteId;
             Imposto = imposto;
