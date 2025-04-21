@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  servicos-calculo-imposto:
+    image: servicos-calculo-imposto-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+    restart: unless-stopped
+    networks:
+      - choppz-network
+
+networks:
+  choppz-network:
+    driver: bridge
