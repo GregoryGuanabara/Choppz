@@ -28,14 +28,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Application\" />
-    <Folder Include="Infra\" />
+    <Folder Include="Servicos.CalculoImposto.Infra.Tests\" />
     <Folder Include="Mocks\Bogus\" />
     <Folder Include="Mocks\Fakes\" />
     <Folder Include="Mocks\Substitutes\" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Servicos.CalculoImposto.Application\Servicos.CalculoImposto.Application.csproj" />
     <ProjectReference Include="..\Servicos.CalculoImposto.Core\Servicos.CalculoImposto.Core.csproj" />
   </ItemGroup>
 
