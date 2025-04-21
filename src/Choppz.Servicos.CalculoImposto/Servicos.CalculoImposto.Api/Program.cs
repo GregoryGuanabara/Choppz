@@ -4,6 +4,7 @@ using Servicos.CalculoImposto.Api.Middlewares;
 using Servicos.CalculoImposto.Application;
 using Servicos.CalculoImposto.Core;
 using Servicos.CalculoImposto.Infra;
+using Servicos.CalculoImposto.Infra.Hangfire.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -24,7 +25,11 @@ builder.Host.UseSerilog((ctx, lc) => lc
     .WriteTo.Console()
     .Enrich.FromLogContext());
 
+builder.Services.AddHangfireServices();
+
 var app = builder.Build();
+
+app.UseHangfireJobs();
 
 app.UseMiddleware<RequestResponseLoggingMiddleware>();
 

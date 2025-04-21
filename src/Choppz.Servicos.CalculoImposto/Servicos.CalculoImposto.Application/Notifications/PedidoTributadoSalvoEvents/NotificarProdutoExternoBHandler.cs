@@ -3,7 +3,6 @@ using Servicos.CalculoImposto.Application.Models;
 using Servicos.CalculoImposto.Core.Abstractions.Repositories;
 using Servicos.CalculoImposto.Core.Abstractions.UnitOfWork;
 using Servicos.CalculoImposto.Core.Entities.OutboxMessage;
-using Servicos.CalculoImposto.Core.Enums;
 using Servicos.CalculoImposto.Core.Events;
 using System.Text.Json;
 
