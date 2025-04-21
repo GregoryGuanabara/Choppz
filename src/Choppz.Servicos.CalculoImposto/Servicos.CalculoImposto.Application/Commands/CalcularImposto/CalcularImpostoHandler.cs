@@ -2,29 +2,25 @@
 using Servicos.CalculoImposto.Application.Models;
 using Servicos.CalculoImposto.Core.Abstractions.CacheService;
 using Servicos.CalculoImposto.Core.Abstractions.Repositories;
+using Servicos.CalculoImposto.Core.Abstractions.Services;
 using Servicos.CalculoImposto.Core.Abstractions.UnitOfWork;
 using Servicos.CalculoImposto.Core.Entities.PedidoTributado;
 using Servicos.CalculoImposto.Core.Events;
-using Servicos.CalculoImposto.Core.Services.Impostos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Servicos.CalculoImposto.Infra.Persistence.Repositories;
 
 namespace Servicos.CalculoImposto.Application.Commands.CalcularImposto
 {
     public class CalcularImpostoHandler : IRequestHandler<CalcularImpostoCommand, RespostaPadronizadaModel>
     {
+        private readonly ICacheService _cacheService;
+        private readonly IImpostoService _impostoService;
         private readonly IPedidoTributadoRepository _pedidoTributadoRepository;
         private readonly IUnitOfWork _unitOfWork;
-        private readonly ICacheService _cacheService;
-        private readonly ImpostoService _impostoService;
 
         public CalcularImpostoHandler(IPedidoTributadoRepository pedidoComImposto,
                                       IUnitOfWork unitOfWork,
                                       ICacheService cacheService,
-                                      ImpostoService impostoService)
+                                      IImpostoService impostoService)
         {
             _pedidoTributadoRepository = pedidoComImposto;
             _unitOfWork = unitOfWork;
@@ -43,11 +39,13 @@ namespace Servicos.CalculoImposto.Application.Commands.CalcularImposto
 
             var pedidoTributado = new PedidoTributado(request.PedidoId, request.ClienteId, imposto, PedidoItemModel.ConverterParaEntidade(request.Itens));
 
+            await _pedidoTributadoRepository.InserirAsync(pedidoTributado);
+
             pedidoTributado.RaiseEvent(new PedidoTributadoSalvo(pedidoTributado.Id, pedidoTributado.PedidoId, pedidoTributado.ClienteId, pedidoTributado.Imposto, PedidoItemModel.ConverterParaDTO(request.Itens), pedidoTributado.Status));
 
             await _unitOfWork.SaveChangesAsync();
 
-            return RespostaPadronizadaModel.ComSucesso(new { });
+            return RespostaPadronizadaModel.ComSucesso(new CalcularImpostoResponse(pedidoTributado.Id, pedidoTributado.Status));
         }
     }
 }

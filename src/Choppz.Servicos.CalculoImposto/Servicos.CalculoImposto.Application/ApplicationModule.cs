@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Servicos.CalculoImposto.Application.Abstractions.EventDispacherService;
+using Servicos.CalculoImposto.Infra.Abstractions.EventDispatcher;
 
 namespace Servicos.CalculoImposto.Application
 {
@@ -7,7 +9,8 @@ namespace Servicos.CalculoImposto.Application
         public static IServiceCollection AddApplicationModuleServices(this IServiceCollection services)
         {
             services
-                .AddMediatR();
+                .AddMediatR()
+                .AddEventDispatcher();
 
             return services;
         }
@@ -19,6 +22,12 @@ namespace Servicos.CalculoImposto.Application
                 config.RegisterServicesFromAssembly(typeof(ApplicationModule).Assembly);
             });
 
+            return services;
+        }
+
+        private static IServiceCollection AddEventDispatcher(this IServiceCollection services)
+        {
+            services.AddScoped<IEventDispatcher, EventDispatcher>();
             return services;
         }
     }

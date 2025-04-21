@@ -1,10 +1,17 @@
-﻿namespace Servicos.CalculoImposto.Application.Models
+﻿using System.Text.Json.Serialization;
+
+namespace Servicos.CalculoImposto.Application.Models
 {
+
+
     public sealed record RespostaPadronizadaModel
+
     {
         public object? Data { get; }
         public bool Sucesso { get; }
         public string? Mensagem { get; }
+
+        [JsonIgnore]
         public bool ResultadoValidacao { get; }
 
         private RespostaPadronizadaModel(object? data, bool sucesso, string mensagem)
