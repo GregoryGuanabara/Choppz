@@ -1,0 +1,21 @@
+services:
+  unit-tests:
+    image: mcr.microsoft.com/dotnet/sdk:9.0
+    working_dir: /src/src/Choppz.Servicos.CalculoImposto
+    volumes:
+      - .:/src
+    command: >
+      bash -c "dotnet restore Choppz.Servicos.CalculoImposto.sln && 
+      dotnet test Servicos.CalculoImposto.UnitTests/Servicos.CalculoImposto.UnitTests.csproj --no-restore --no-build --logger 'trx;LogFileName=unit-tests.trx'"
+
+  integration-tests:
+    image: mcr.microsoft.com/dotnet/sdk:9.0
+    working_dir: /src/src/Choppz.Servicos.CalculoImposto
+    volumes:
+      - .:/src
+    depends_on:
+      unit-tests:
+        condition: service_completed_successfully
+    command: >
+      bash -c "dotnet restore Choppz.Servicos.CalculoImposto.sln && 
+      dotnet test Servicos.CalculoImposto.IntegrationTests/Servicos.CalculoImposto.IntegrationTests.csproj --no-restore --no-build --logger 'trx;LogFileName=integration-tests.trx'"

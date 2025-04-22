@@ -1,0 +1,6 @@
+@Servicos.CalculoImposto.Api_HostAddress = http://localhost:5139
+
+GET {{Servicos.CalculoImposto.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
