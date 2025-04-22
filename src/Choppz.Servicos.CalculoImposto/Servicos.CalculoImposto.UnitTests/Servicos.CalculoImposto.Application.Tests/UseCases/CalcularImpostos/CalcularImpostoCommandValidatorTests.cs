@@ -1,11 +1,11 @@
 ﻿using Bogus;
 using FluentAssertions;
 using FluentValidation.TestHelper;
-using Servicos.CalculoImposto.Application.Commands.CalcularImposto;
 using Servicos.CalculoImposto.Application.Models;
+using Servicos.CalculoImposto.Application.UseCases.CalcularImposto;
 using Servicos.CalculoImposto.UnitTests.Servicos.CalculoImposto.Application.Tests.Builders;
 
-namespace Servicos.CalculoImposto.Application.Tests.Commands.CalcularImposto
+namespace Servicos.CalculoImposto.Application.Tests.UseCases.CalcularImpostos
 {
     public class CalcularImpostoCommandValidatorTests
     {

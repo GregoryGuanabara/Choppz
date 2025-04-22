@@ -1,9 +1,9 @@
 ﻿using Bogus;
 using FluentAssertions;
-using Servicos.CalculoImposto.Application.Commands.CalcularImposto;
+using Servicos.CalculoImposto.Application.UseCases.CalcularImposto;
 using Servicos.CalculoImposto.Core.Enums;
 
-namespace Servicos.CalculoImposto.Application.Tests.Commands.CalcularImposto
+namespace Servicos.CalculoImposto.Application.Tests.UseCases.CalcularImpostos
 {
     public class CalcularImpostoResponseTests
     {

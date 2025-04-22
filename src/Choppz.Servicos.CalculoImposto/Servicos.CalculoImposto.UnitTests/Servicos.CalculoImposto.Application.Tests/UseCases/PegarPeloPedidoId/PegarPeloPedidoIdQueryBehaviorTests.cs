@@ -8,7 +8,7 @@ using Servicos.CalculoImposto.Core.Abstractions.CacheService;
 using Servicos.CalculoImposto.Core.Enums;
 using Servicos.CalculoImposto.UnitTests.Servicos.CalculoImposto.Application.Tests.Builders;
 
-namespace Servicos.CalculoImposto.Application.Tests.Queries.PegarPeloPedidoId
+namespace Servicos.CalculoImposto.Application.Tests.UseCases.PegarPeloPedidoId
 {
     public class PegarPeloPedidoIdQueryBehaviorTests
     {
@@ -102,7 +102,7 @@ namespace Servicos.CalculoImposto.Application.Tests.Queries.PegarPeloPedidoId
             await _behavior.Handle(request, NextHandler, CancellationToken.None);
 
             // Assert
-            _cacheService.DidNotReceiveWithAnyArgs().Inserir<RespostaPadronizadaModel>(Arg.Any<string>(), Arg.Any<RespostaPadronizadaModel>(), Arg.Any<TimeSpan>());
+            _cacheService.DidNotReceiveWithAnyArgs().Inserir(Arg.Any<string>(), Arg.Any<RespostaPadronizadaModel>(), Arg.Any<TimeSpan>());
         }
     }
 }

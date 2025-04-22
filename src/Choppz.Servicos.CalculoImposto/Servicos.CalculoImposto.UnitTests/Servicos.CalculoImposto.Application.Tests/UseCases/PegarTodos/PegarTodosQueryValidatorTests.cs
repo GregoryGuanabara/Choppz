@@ -3,7 +3,7 @@ using FluentValidation.TestHelper;
 using Servicos.CalculoImposto.Application.Queries.PegarTodos;
 using Servicos.CalculoImposto.Core.Enums;
 
-namespace Servicos.CalculoImposto.Application.Tests.Queries.PegarTodos
+namespace Servicos.CalculoImposto.Application.Tests.UseCases.PegarTodos
 {
     public class PegarTodosQueryValidatorTests
     {

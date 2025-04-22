@@ -1,8 +1,8 @@
 ﻿using Bogus;
 using FluentAssertions;
 using NSubstitute;
-using Servicos.CalculoImposto.Application.Commands.CalcularImposto;
 using Servicos.CalculoImposto.Application.Models;
+using Servicos.CalculoImposto.Application.UseCases.CalcularImposto;
 using Servicos.CalculoImposto.Core.Abstractions.CacheService;
 using Servicos.CalculoImposto.Core.Abstractions.Repositories;
 using Servicos.CalculoImposto.Core.Abstractions.Services;
@@ -10,7 +10,7 @@ using Servicos.CalculoImposto.Core.Abstractions.UnitOfWork;
 using Servicos.CalculoImposto.Core.Entities.PedidoTributado;
 using Servicos.CalculoImposto.Core.Events;
 
-namespace Servicos.CalculoImposto.Application.Tests.Commands.CalcularImposto
+namespace Servicos.CalculoImposto.Application.Tests.UseCases.CalcularImpostos
 {
     public class CalcularImpostoHandlerTests
     {

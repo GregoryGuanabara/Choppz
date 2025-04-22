@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using Servicos.CalculoImposto.Application.Models;
 
-namespace Servicos.CalculoImposto.Application.Commands.CalcularImposto
+namespace Servicos.CalculoImposto.Application.UseCases.CalcularImposto
 {
     public sealed record CalcularImpostoCommand : IRequest<RespostaPadronizadaModel>
     {

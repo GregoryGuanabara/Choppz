@@ -7,7 +7,7 @@ using Servicos.CalculoImposto.Core.Abstractions.UnitOfWork;
 using Servicos.CalculoImposto.Core.Entities.PedidoTributado;
 using Servicos.CalculoImposto.Core.Events;
 
-namespace Servicos.CalculoImposto.Application.Commands.CalcularImposto
+namespace Servicos.CalculoImposto.Application.UseCases.CalcularImposto
 {
     public class CalcularImpostoHandler : IRequestHandler<CalcularImpostoCommand, RespostaPadronizadaModel>
     {

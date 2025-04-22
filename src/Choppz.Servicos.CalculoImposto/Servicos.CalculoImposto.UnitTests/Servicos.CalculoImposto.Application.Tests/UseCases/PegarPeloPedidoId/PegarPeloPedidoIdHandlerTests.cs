@@ -6,9 +6,8 @@ using Servicos.CalculoImposto.Application.Queries.PegarPeloProdutoId;
 using Servicos.CalculoImposto.Core.Abstractions.Repositories;
 using Servicos.CalculoImposto.Core.Entities.PedidoTributado;
 using Servicos.CalculoImposto.Core.Enums;
-using Xunit.Abstractions;
 
-namespace Servicos.CalculoImposto.Application.Tests.Queries.PegarPeloPedidoId
+namespace Servicos.CalculoImposto.Application.Tests.UseCases.PegarPeloPedidoId
 {
     public class PegarPeloPedidoIdHandlerTests
     {

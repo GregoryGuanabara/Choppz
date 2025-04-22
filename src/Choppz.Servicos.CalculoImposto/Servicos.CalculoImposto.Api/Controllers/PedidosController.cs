@@ -1,9 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Servicos.CalculoImposto.Application.Commands.CalcularImposto;
 using Servicos.CalculoImposto.Application.Models;
 using Servicos.CalculoImposto.Application.Queries.PegarPeloProdutoId;
 using Servicos.CalculoImposto.Application.Queries.PegarTodos;
+using Servicos.CalculoImposto.Application.UseCases.CalcularImposto;
 
 namespace Servicos.CalculoImposto.Api.Controllers
 {

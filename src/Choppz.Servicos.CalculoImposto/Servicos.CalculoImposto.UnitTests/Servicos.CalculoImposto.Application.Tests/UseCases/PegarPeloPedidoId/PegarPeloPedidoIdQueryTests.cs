@@ -4,7 +4,7 @@ using MediatR;
 using Servicos.CalculoImposto.Application.Models;
 using Servicos.CalculoImposto.Application.Queries.PegarPeloProdutoId;
 
-namespace Servicos.CalculoImposto.Application.Tests.Queries.PegarPeloPedidoId
+namespace Servicos.CalculoImposto.Application.Tests.UseCases.PegarPeloPedidoId
 {
     public class PegarPeloPedidoIdQueryTests
     {

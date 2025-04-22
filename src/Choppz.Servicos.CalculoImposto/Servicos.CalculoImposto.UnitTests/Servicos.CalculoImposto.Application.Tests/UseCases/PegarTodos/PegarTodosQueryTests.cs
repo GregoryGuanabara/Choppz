@@ -4,9 +4,8 @@ using MediatR;
 using Servicos.CalculoImposto.Application.Models;
 using Servicos.CalculoImposto.Application.Queries.PegarTodos;
 using Servicos.CalculoImposto.Core.Enums;
-using Xunit;
 
-namespace Servicos.CalculoImposto.Application.Tests.Queries.PegarTodos
+namespace Servicos.CalculoImposto.Application.Tests.UseCases.PegarTodos
 {
     public class PegarTodosQueryTests
     {

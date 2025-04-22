@@ -11,7 +11,7 @@ using Servicos.CalculoImposto.Core.Enums;
 using Servicos.CalculoImposto.Core.Tests.Builders;
 using Xunit;
 
-namespace Servicos.CalculoImposto.Application.Tests.Queries.PegarTodos
+namespace Servicos.CalculoImposto.Application.Tests.UseCases.PegarTodos
 {
     public class PegarTodosHandlerTests
     {

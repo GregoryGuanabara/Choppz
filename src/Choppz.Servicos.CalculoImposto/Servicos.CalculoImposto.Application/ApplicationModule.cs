@@ -3,9 +3,9 @@ using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Servicos.CalculoImposto.Application.Abstractions.Behaviors;
 using Servicos.CalculoImposto.Application.Abstractions.EventDispacherService;
-using Servicos.CalculoImposto.Application.Commands.CalcularImposto;
 using Servicos.CalculoImposto.Application.Models;
 using Servicos.CalculoImposto.Application.Queries.PegarPeloProdutoId;
+using Servicos.CalculoImposto.Application.UseCases.CalcularImposto;
 using Servicos.CalculoImposto.Infra.Abstractions.EventDispatcher;
 
 namespace Servicos.CalculoImposto.Application

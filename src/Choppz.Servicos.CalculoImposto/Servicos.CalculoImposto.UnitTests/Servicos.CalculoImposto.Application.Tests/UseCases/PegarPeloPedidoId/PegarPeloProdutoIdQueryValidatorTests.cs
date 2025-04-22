@@ -2,7 +2,7 @@
 using FluentValidation.TestHelper;
 using Servicos.CalculoImposto.Application.Queries.PegarPeloProdutoId;
 
-namespace Servicos.CalculoImposto.Application.Tests.Queries.PegarPeloProdutoId
+namespace Servicos.CalculoImposto.Application.Tests.UseCases.PegarPeloPedidoId
 {
     public class PegarPeloProdutoIdQueryValidatorTests
     {

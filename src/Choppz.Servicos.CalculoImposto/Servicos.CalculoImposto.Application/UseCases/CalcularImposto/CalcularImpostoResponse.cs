@@ -1,6 +1,6 @@
 ﻿using Servicos.CalculoImposto.Core.Enums;
 
-namespace Servicos.CalculoImposto.Application.Commands.CalcularImposto
+namespace Servicos.CalculoImposto.Application.UseCases.CalcularImposto
 {
     public sealed record CalcularImpostoResponse
     {
