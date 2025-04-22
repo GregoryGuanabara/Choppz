@@ -86,3 +86,39 @@ Acessar a API através do endereço fornecido e sera exibida a documentação do
     ├── 📂 tests                                    # Testes Unitários/Integração
     ├── 📜 docker-compose.yml                       # Configuração Docker
     └── 📜 Dockerfile                               # Definição da Imagem
+
+## 🧪 Testes Automatizados - Unidade e Integração
+
+Este projeto utiliza XUnit para estruturação de testes automatizados, garantindo que a lógica de negócios e integrações sejam validadas corretamente. Asserções são realizadas com FluentAssertions, enquanto Bogus auxilia na geração de dados fictícios e NSubstitute permite mockar dependências de forma eficiente
+
+O projeto segue uma abordagem de testes separados em unidade e integração, cada um com um objetivo específico:
+✔ Testes de Unidade: Validam componentes isolados da aplicação, sem dependências externas.
+✔ Testes de Integração: Verificam a comunicação entre componentes, garantindo que o sistema funcione corretamente em conjunto.
+
+ Tecnologias Utilizadas
+| Tecnologia       | Propósito                                 | 
+| XUnit            | Framework de testes unitários             | 
+| FluentAssertions | Asserções fluentes e legíveis             | 
+| Bogus            | Geração de dados fictícios para testes    | 
+| NSubstitute      | Mock de dependências para testes isolados | 
+
+🚀 Como Executar os Testes
+
+Antes de rodar os testes, certifique-se de que todos os pacotes necessários estão instalados:
+```bash
+dotnet restore
+```
+Depois navegue até a pasta do projeto que deseja executar
+e execute os testes unitários e de integração com o seguinte comando:
+```bash
+dotnet test --logger "trx;LogFileName=test-results.trx"
+```
+Isso gerará um relatório de testes no formato .trx, que pode ser analisado posteriormente.
+
+Se preferir rodar os testes em containers:
+
+Na raiz do projeto utilize o comando:
+
+```bash
+docker-compose -f docker-compose.test.yml up --abort-on-container-exit
+```

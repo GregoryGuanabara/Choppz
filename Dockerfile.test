@@ -1,0 +1,21 @@
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+
+WORKDIR /src
+
+# Copia a solução
+COPY src/Choppz.Servicos.CalculoImposto .
+
+# Copia os .csproj mantendo estrutura
+COPY ["src/Choppz.Servicos.CalculoImposto/Servicos.CalculoImposto.UnitTests/Servicos.CalculoImposto.UnitTests.csproj", "src/Choppz.Servicos.CalculoImposto/Servicos.CalculoImposto.UnitTests/"]
+COPY ["src/Choppz.Servicos.CalculoImposto/Servicos.CalculoImposto.IntegrationTests/Servicos.CalculoImposto.IntegrationTests.csproj", "src/Choppz.Servicos.CalculoImposto/Servicos.CalculoImposto.IntegrationTests/"]
+
+RUN ls -R /src
+# Restauração
+RUN dotnet restore "./Choppz.Servicos.CalculoImposto.sln"
+
+# Copia tudo
+COPY . .
+
+# Testes
+RUN dotnet test "src/Choppz.Servicos.CalculoImposto/Servicos.CalculoImposto.UnitTests/Servicos.CalculoImposto.UnitTests.csproj" --no-restore
+RUN dotnet test "src/Choppz.Servicos.CalculoImposto/Servicos.CalculoImposto.IntegrationTests/Servicos.CalculoImposto.IntegrationTests.csproj" --no-restore
