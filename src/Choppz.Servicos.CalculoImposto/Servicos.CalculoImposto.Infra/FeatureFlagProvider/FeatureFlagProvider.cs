@@ -20,13 +20,17 @@ namespace Servicos.CalculoImposto.Infra.FeatureFlagProviderService
             var featureName = feature.ToString();
 
             if (_cache.TryGetValue(featureName, out var isEnabled))
+            {
                 return isEnabled;
+            }
 
-            var featureFlagValue = _config.GetSection($"FeatureFlags:{feature}").Value;
-            isEnabled = !string.IsNullOrEmpty(featureFlagValue) && bool.TryParse(featureFlagValue, out var parsedValue) && parsedValue;
+            var configValue = _config.GetSection($"FeatureFlags:{featureName}").Value;
+            isEnabled = bool.TryParse(configValue, out var parsedValue) && parsedValue;
+
             _cache[featureName] = isEnabled;
-
             return isEnabled;
         }
     }
+
 }
+

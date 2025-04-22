@@ -2,7 +2,7 @@
 
 namespace Servicos.CalculoImposto.Infra.MessageBus
 {
-    internal interface IMessageBusService
+    public interface IMessageBusService
     {
         Task<bool> PublishAsync(OutboxMessage message);
     }

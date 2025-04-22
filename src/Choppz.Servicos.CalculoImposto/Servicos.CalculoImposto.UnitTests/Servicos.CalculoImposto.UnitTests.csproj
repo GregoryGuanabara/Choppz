@@ -28,7 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Servicos.CalculoImposto.Infra.Tests\" />
     <Folder Include="Mocks\Bogus\" />
     <Folder Include="Mocks\Fakes\" />
     <Folder Include="Mocks\Substitutes\" />

@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Servicos.CalculoImposto.Core.Entities.OutboxMessage;
 using Servicos.CalculoImposto.Core.Entities.PedidoTributado;
+using Servicos.CalculoImposto.Infra.Abstractions;
 using Servicos.CalculoImposto.Infra.Persistence.EntitiesConfig;
 
 namespace Servicos.CalculoImposto.Infra.Persistence

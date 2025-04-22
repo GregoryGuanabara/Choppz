@@ -5,7 +5,7 @@ using Servicos.CalculoImposto.Infra.MessageBus;
 
 namespace Servicos.CalculoImposto.Infra.Hangfire.Jobs
 {
-    internal sealed class ProcessarOutboxJob
+    public sealed class ProcessarOutboxJob
     {
         private readonly IMessageBusService _messageBusService;
         private readonly IOutboxMessageRepository _outboxRepository;
@@ -23,6 +23,9 @@ namespace Servicos.CalculoImposto.Infra.Hangfire.Jobs
         public async Task Executar()
         {
             var mensagens = await _outboxRepository.PegarTodosAsync(EOutboxMessageStatus.Pendente);
+
+            if (!mensagens.Any())
+                return;
 
             foreach (var mensagem in mensagens)
             {
