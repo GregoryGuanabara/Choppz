@@ -6,7 +6,6 @@ using Servicos.CalculoImposto.Core.Abstractions.Services;
 using Servicos.CalculoImposto.Core.Abstractions.UnitOfWork;
 using Servicos.CalculoImposto.Core.Entities.PedidoTributado;
 using Servicos.CalculoImposto.Core.Events;
-using Servicos.CalculoImposto.Infra.Persistence.Repositories;
 
 namespace Servicos.CalculoImposto.Application.Commands.CalcularImposto
 {

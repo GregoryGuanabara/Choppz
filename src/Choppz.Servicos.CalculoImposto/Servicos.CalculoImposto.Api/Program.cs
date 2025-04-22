@@ -1,3 +1,4 @@
+using Hangfire;
 using Scalar.AspNetCore;
 using Serilog;
 using Servicos.CalculoImposto.Api.Middlewares;
@@ -29,7 +30,11 @@ builder.Services.AddHangfireServices();
 
 var app = builder.Build();
 
-app.UseHangfireJobs();
+if (!app.Environment.IsEnvironment("Test"))
+{
+    app.UseHangfireDashboard();
+    app.UseHangfireJobs();
+}
 
 app.UseMiddleware<RequestResponseLoggingMiddleware>();
 
@@ -56,3 +61,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+
+public partial class Program
+{
+}

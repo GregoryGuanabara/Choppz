@@ -4,6 +4,11 @@ namespace Servicos.CalculoImposto.Application.Commands.CalcularImposto
 {
     public sealed record CalcularImpostoResponse
     {
+        public CalcularImpostoResponse()
+        {
+            Status = string.Empty;
+        }
+
         public CalcularImpostoResponse(int id, EPedidoTributadoStatus status)
         {
             Id = id;

@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   servicos-calculo-imposto:
     image: servicos-calculo-imposto-api
