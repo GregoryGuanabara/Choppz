@@ -21,7 +21,7 @@ namespace Servicos.CalculoImposto.Application.Notifications.PedidoTributadoSalvo
 
         public async Task Handle(PedidoTributadoSalvoEvent notification, CancellationToken cancellationToken)
         {
-            await _outboxMessageRepository.InserirAsync(new OutboxMessage(nameof(PedidoTributadoModel), JsonSerializer.Serialize(notification)));
+            await _outboxMessageRepository.InserirAsync(new OutboxMessage(nameof(PedidoTributadoSalvoEvent), JsonSerializer.Serialize(notification)));
             await _unitOfWork.SaveChangesAsync();
         }
     }

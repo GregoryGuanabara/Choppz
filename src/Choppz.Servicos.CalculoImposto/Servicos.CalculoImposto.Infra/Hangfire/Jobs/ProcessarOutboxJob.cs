@@ -28,8 +28,8 @@ namespace Servicos.CalculoImposto.Infra.Hangfire.Jobs
             {
                 try
                 {
-                   await _messageBusService.PublishAsync(mensagem);
                     mensagem.SetarComoProcessado();
+                    await _messageBusService.PublishAsync(mensagem);
                 }
                 catch (Exception ex)
                 {
