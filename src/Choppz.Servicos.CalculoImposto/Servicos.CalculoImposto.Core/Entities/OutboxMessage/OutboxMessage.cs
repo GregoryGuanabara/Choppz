@@ -35,5 +35,6 @@ namespace Servicos.CalculoImposto.Core.Entities.OutboxMessage
             Status = EOutboxMessageStatus.Falhou;
             AtualizarModificadoEm();
         }
+
     }
 }

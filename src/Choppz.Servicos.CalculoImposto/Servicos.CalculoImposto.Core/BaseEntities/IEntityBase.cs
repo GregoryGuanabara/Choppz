@@ -1,6 +1,8 @@
-﻿namespace Servicos.CalculoImposto.Core.BaseEntities
+﻿using Servicos.CalculoImposto.Core.Abstractions.Validators;
+
+namespace Servicos.CalculoImposto.Core.BaseEntities
 {
-    public interface IEntityBase
+    public interface IEntityBase 
     {
         protected int Id { get; }
     }

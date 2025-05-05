@@ -1,9 +1,12 @@
-﻿using Servicos.CalculoImposto.Core.BaseEntities;
+﻿using Servicos.CalculoImposto.Core.Abstractions.DomainException;
+using Servicos.CalculoImposto.Core.Abstractions.Validators;
+using Servicos.CalculoImposto.Core.BaseEntities;
 using Servicos.CalculoImposto.Core.Enums;
+using Servicos.CalculoImposto.Core.Validators;
 
 namespace Servicos.CalculoImposto.Core.Entities.PedidoTributado
 {
-    public sealed class PedidoTributado : AggregateRoot
+    public sealed class PedidoTributado : AggregateRoot, IValidatable
     {
         private readonly List<PedidoItem> _itens;
 
@@ -14,23 +17,12 @@ namespace Servicos.CalculoImposto.Core.Entities.PedidoTributado
 
         public PedidoTributado(int pedidoId, int clienteId, decimal imposto, List<PedidoItem> itens)
         {
-            if (pedidoId <= 0)
-                throw new ArgumentException("ID do pedido inválido", nameof(pedidoId));
-
-            if (clienteId <= 0)
-                throw new ArgumentException("ID do cliente inválido", nameof(clienteId));
-
-            if (imposto < 0)
-                throw new ArgumentException("Valor do imposto não pode ser negativo", nameof(imposto));
-
-            if (itens == null || !itens.Any())
-                throw new ArgumentException("Pedido deve conter pelo menos um item", nameof(itens));
-
             PedidoId = pedidoId;
             ClienteId = clienteId;
             Imposto = imposto;
             Status = EPedidoTributadoStatus.Criado;
             _itens = itens;
+            Validate();
         }
 
         public int PedidoId { get; private set; }
@@ -46,6 +38,18 @@ namespace Servicos.CalculoImposto.Core.Entities.PedidoTributado
 
             Status = EPedidoTributadoStatus.Cancelado;
             AtualizarModificadoEm();
+        }
+
+        public void Validate()
+        {
+            var validator = new PedidoTributadoValidator();
+            var result = validator.Validate(this);
+
+            if (!result.IsValid)
+            {
+                foreach (var error in result.Errors)
+                    throw new DomainException(error.ErrorMessage);
+            }
         }
     }
 }

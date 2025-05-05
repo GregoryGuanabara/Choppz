@@ -2,6 +2,7 @@
 using FluentAssertions;
 using Xunit;
 using Bogus;
+using Servicos.CalculoImposto.Core.Abstractions.DomainException;
 
 namespace Servicos.CalculoImposto.Core.Tests.Entities
 {
@@ -28,17 +29,19 @@ namespace Servicos.CalculoImposto.Core.Tests.Entities
         }
 
         [Theory]
-        [InlineData(0, 1, 100.50)]  // ProdutoId zero
-        [InlineData(1, 0, 100.50)]   // Quantidade zero
-        [InlineData(1, -1, 100.50)]  // Quantidade negativa
-        [InlineData(1, 1, -100.50)]  // Valor negativo
+        [InlineData(0, 1, 100.50, "ProdutoId deve ser maior que 0")]
+        [InlineData(1, 0, 100.50, "Quantidade deve ser maior que 0")] 
+        [InlineData(1, -1, 100.50, "Quantidade deve ser maior que 0")]
+        [InlineData(1, 1, -100.50, "Valor unitário não pode ser menor que 0")]
         public void Constructor_ComParametrosInvalidos_DeveLancarArgumentException(
-            int produtoId, int quantidade, decimal valor)
+            int produtoId, int quantidade, decimal valor, string paramEsperado)
         {
             // Act & Assert
-            Assert.Throws<ArgumentException>(
+            var ex = Assert.Throws<DomainException>(
                 () => new PedidoItem(produtoId, quantidade, valor)
             );
+
+            ex.Message.Should().Be(paramEsperado);
         }
 
         [Fact]

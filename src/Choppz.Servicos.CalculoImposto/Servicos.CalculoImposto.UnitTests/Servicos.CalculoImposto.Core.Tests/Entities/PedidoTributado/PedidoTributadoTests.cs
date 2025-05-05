@@ -1,10 +1,8 @@
 ﻿using Bogus;
 using FluentAssertions;
-using Servicos.CalculoImposto.Core.DTOs;
-using Servicos.CalculoImposto.Core.Entities.OutboxMessage;
+using Servicos.CalculoImposto.Core.Abstractions.DomainException;
 using Servicos.CalculoImposto.Core.Entities.PedidoTributado;
 using Servicos.CalculoImposto.Core.Enums;
-using Servicos.CalculoImposto.Core.Tests.Builders;
 
 namespace Servicos.CalculoImposto.Core.Tests.Entities
 {
@@ -43,11 +41,11 @@ namespace Servicos.CalculoImposto.Core.Tests.Entities
         }
 
         [Theory]
-        [InlineData(0, 1, 10, "pedidoId")]
-        [InlineData(-1, 1, 10, "pedidoId")]
-        [InlineData(1, 0, 10, "clienteId")]
-        [InlineData(1, -1, 10, "clienteId")]
-        [InlineData(1, 1, -1, "imposto")]
+        [InlineData(0, 1, 10, "ID do pedido inválido")]
+        [InlineData(-1, 1, 10, "ID do pedido inválido")]
+        [InlineData(1, 0, 10, "ID do cliente inválido")]
+        [InlineData(1, -1, 10, "ID do cliente inválido")]
+        [InlineData(1, 1, -1, "Valor do imposto não pode ser negativo")]
         public void Constructor_ComParametrosInvalidos_DeveLancarArgumentException(
             int pedidoId, int clienteId, decimal imposto, string paramEsperado)
         {
@@ -55,10 +53,10 @@ namespace Servicos.CalculoImposto.Core.Tests.Entities
             var itens = CriarItensValidos();
 
             // Act & Assert
-            var ex = Assert.Throws<ArgumentException>(() =>
+            var ex = Assert.Throws<DomainException>(() =>
                 new PedidoTributado(pedidoId, clienteId, imposto, itens));
 
-            ex.ParamName.Should().Be(paramEsperado);
+            ex.Message.Should().Be(paramEsperado);
         }
 
         [Fact]
@@ -68,9 +66,9 @@ namespace Servicos.CalculoImposto.Core.Tests.Entities
             var itensVazios = new List<PedidoItem>();
 
             // Act & Assert
-            Assert.Throws<ArgumentException>(() =>
+            Assert.Throws<DomainException>(() =>
                 new PedidoTributado(1, 1, 10m, itensVazios))
-                .ParamName.Should().Be("itens");
+                .Message.Should().Be("Pedido deve conter pelo menos um item");
         }
 
         [Fact]
@@ -80,9 +78,9 @@ namespace Servicos.CalculoImposto.Core.Tests.Entities
             var itensNulos = (List<PedidoItem>?)null;
 
             // Act & Assert
-            Assert.Throws<ArgumentException>(() =>
+            Assert.Throws<DomainException>(() =>
                 new PedidoTributado(1, 1, 10m, itensNulos!))
-                .ParamName.Should().Be("itens");
+                .Message.Should().Be("Lista de itens não pode ser nula");
         }
 
         [Fact]
@@ -129,5 +127,4 @@ namespace Servicos.CalculoImposto.Core.Tests.Entities
             type.GetProperty(nameof(PedidoTributado.Itens))!.PropertyType.Should().BeAssignableTo<IReadOnlyList<PedidoItem>>();
         }
     }
-
 }
