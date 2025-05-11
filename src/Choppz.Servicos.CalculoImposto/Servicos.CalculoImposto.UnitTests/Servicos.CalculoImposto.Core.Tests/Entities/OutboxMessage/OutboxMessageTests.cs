@@ -1,5 +1,6 @@
 ﻿using Bogus;
 using FluentAssertions;
+using Servicos.CalculoImposto.Core.Abstractions.DomainException;
 using Servicos.CalculoImposto.Core.Entities.OutboxMessage;
 using Servicos.CalculoImposto.Core.Enums;
 
@@ -28,27 +29,15 @@ namespace Servicos.CalculoImposto.Core.Tests.Entities
         }
 
         [Theory]
-        [InlineData("")]
-        [InlineData(" ")]
-        public void Constructor_ComTipoEventoInvalido_DeveLancarException(string tipoInvalido)
+        [InlineData("", "payload", "Tipo do evento não pode ser nulo ou vazio.")]
+        [InlineData("TipoDeEvento", "", "Payload não pode ser nulo ou vazio.")]
+        public void Constructor_ComParametrosInvalidos_DeveLancarArgumentException(string tipoDoEvento, string payload, string paramEsperado)
         {
-            // Arrange
-            var payload = _faker.Lorem.Text();
-
             // Act & Assert
-            Assert.Throws<ArgumentException>(() => new OutboxMessage(tipoInvalido, payload));
-        }
+            var ex = Assert.Throws<DomainException>(() =>
+                new OutboxMessage(tipoDoEvento, payload));
 
-        [Theory]
-        [InlineData("")]
-        [InlineData(" ")]
-        public void Constructor_ComPayloadInvalido_DeveLancarException(string payloadInvalido)
-        {
-            // Arrange
-            var tipoEvento = _faker.Lorem.Word();
-
-            // Act & Assert
-            Assert.Throws<ArgumentException>(() => new OutboxMessage(tipoEvento, payloadInvalido));
+            ex.Message.Should().Be(paramEsperado);
         }
 
         [Fact]

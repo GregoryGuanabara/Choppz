@@ -1,21 +1,19 @@
-﻿using Servicos.CalculoImposto.Core.BaseEntities;
+﻿using Servicos.CalculoImposto.Core.Abstractions.DomainException;
+using Servicos.CalculoImposto.Core.Abstractions.Validators;
+using Servicos.CalculoImposto.Core.BaseEntities;
 using Servicos.CalculoImposto.Core.Enums;
+using Servicos.CalculoImposto.Core.Validators;
 
 namespace Servicos.CalculoImposto.Core.Entities.OutboxMessage
 {
-    public class OutboxMessage : AggregateRoot
+    public class OutboxMessage : AggregateRoot, IValidatable
     {
         public OutboxMessage(string tipoDoEvento, string payload)
         {
-            if (string.IsNullOrWhiteSpace(tipoDoEvento))
-                throw new ArgumentException("Tipo do evento não pode ser nulo ou vazio.", nameof(tipoDoEvento));
-
-            if (string.IsNullOrWhiteSpace(payload))
-                throw new ArgumentException("Payload não pode ser nulo ou vazio.", nameof(payload));
-
             TipoDoEvento = tipoDoEvento;
             Payload = payload;
             Status = EOutboxMessageStatus.Pendente;
+            Validate();
         }
 
         public string TipoDoEvento { get; private set; }
@@ -34,6 +32,18 @@ namespace Servicos.CalculoImposto.Core.Entities.OutboxMessage
         {
             Status = EOutboxMessageStatus.Falhou;
             AtualizarModificadoEm();
+        }
+
+        public void Validate()
+        {
+            var validator = new OutboxMessageValidator();
+            var result = validator.Validate(this);
+
+            if (!result.IsValid)
+            {
+                foreach (var error in result.Errors)
+                    throw new DomainException(error.ErrorMessage);
+            }
         }
     }
 }
